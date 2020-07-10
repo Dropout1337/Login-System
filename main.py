@@ -1,19 +1,25 @@
+# Code Updated By Code Disease Dev
+
 import requests, time
+import os
+pastebin = 'https://pastebin.com/raw/jB285Hxc'
 
-username = input(' > Username: ')
-password = input(' > Password: ')
+username = input('Enter Your Username > ')
+os.system('cls')
+password = input('Enter Your Password > ')
+os.system('cls')
 
-r = requests.get('https://pastebin.com/raw/jB285Hxc').text
-if username and password in r:
-  time.sleep(0.1)
-else:
-  print('Invalid Username Or Password.')
-  input()
-  exit()
+response = requests.get(pastebin).text
+
+for line in response.split('\n'):
+  if username and password in line:
+    print('Correct password and username')
+    start()
+print('Invalid password or username.')
 
 # Your Code Below
 
-print('Whats Your Name?')
-name = input()
-print(f'Hi {name}')
-input()
+def start():
+  print('hello world')
+  while True:
+    input()
